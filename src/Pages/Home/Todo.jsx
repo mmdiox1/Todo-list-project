@@ -3,6 +3,15 @@ import { useContext } from "react";
 import { Todocontext } from "../../Contexts/TodoContext";
 
 function TodoLayout() {
+  const [windowswidth, setwindowswidth] = useState();
+  useEffect(() => {
+    function Windowshandler() {
+      setwindowswidth(window.innerWidth);
+      console.log("new with is:", windowswidth);
+    }
+    window.addEventListener("resize", Windowshandler);
+  }, [windowswidth]);
+
   const {
     settask,
     tasktitle,
